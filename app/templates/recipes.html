@@ -3,14 +3,14 @@
 {% block content %}
    <div class="form-signin">
        <form method="POST" action="{{ url_for('routes.recipes') }}">
-           <h1>Рецепты</h1>
+           <h1 style="text-shadow: 2px 3px 3px grey;">Рецепты</h1>
            <div>
                {% if recipes %}
                <div class="vertical-menu">
                    <ul>
                        {% for recipe in recipes %}
                             <li>
-                                <a style="font-size: 150%;" href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
+                                <a style="font-size: 150%; text-shadow: 2px 3px 3px grey;" href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
                             </li>
                        {% endfor %}
                    </ul>
@@ -21,7 +21,7 @@
            </div>
 
            <div>
-               <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.creator_recipe') }}">Добавить рецепт</a>
+               <a class="w-100 btn btn-lg btn-primary" style="text-shadow: 2px 3px 3px grey;" href="{{ url_for('routes.creator_recipe') }}">Добавить рецепт</a>
            </div>
 
 

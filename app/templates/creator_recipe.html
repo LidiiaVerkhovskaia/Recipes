@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="form-signin">
-        <h1 class="h3">Добавление рецепта</h1>
+        <h1 class="h3" style="text-shadow: 3px 3px 3px grey;">Добавление рецепта</h1>
         <form method="POST" action="{{ url_for('routes.creator_recipe') }}">
             {{ form.hidden_tag() }}
             <div class="form-floating">
@@ -46,11 +46,11 @@
             </div>
 
             <div class="form-floating">
-                {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
+                {{ form.submit(class="w-100 btn btn-lg btn-primary", style="text-shadow: 3px 3px 3px grey;") }}
             </div>
 
             <div>
-                <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.recipes') }}">Отмена</a>
+                <a class="w-100 btn btn-lg btn-secondary" style="text-shadow: 3px 3px 3px grey;" href="{{ url_for('routes.recipes') }}">Отмена</a>
             </div>
 
         </form>
