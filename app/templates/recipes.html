@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <div class="form-signin">
+       <form method="POST" action="{{ url_for('routes.recipes') }}">
+           <h1>Рецепты</h1>
+           <div>
+               {% if recipes %}
+               <div class="vertical-menu">
+                   <ul>
+                       {% for recipe in recipes %}
+                            <li>
+                                <a style="font-size: 150%;" href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
+                            </li>
+                       {% endfor %}
+                   </ul>
+               </div>
+               {% else %}
+               <h1>Нет добавленных рецептов</h1>
+               {% endif %}
+           </div>
+
+           <div>
+               <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.creator_recipe') }}">Добавить рецепт</a>
+           </div>
+
+
+
+       </form>
+
+   </div>
+
+
+
+{% endblock %}

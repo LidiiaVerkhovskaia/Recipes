@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="form-signin">
+        <form method="POST" action="{{ url_for('routes.recipe') }}">
+            <nav>
+                <div>
+                    <h1>{{ recipe.title }}</h1>
+                    <h5 style="text-align: center; color: aqua">Category</h5>
+                    <label class="form-control" style="text-align: center;">{{ recipe.category }}</label>
+                    <h5 style="text-align: center; color: aqua">Ingredients</h5>
+                    <textarea class="form-control" style="text-align: center;">{{ recipe.ingredients }}</textarea>
+                    <h5 style="text-align: center; color: aqua">Steps</h5>
+                    <textarea class="form-control" style="text-align: center;">{{ recipe.steps }}</textarea>
+                    <h5 style="text-align: center; color: aqua">Time</h5>
+                    <label class="form-control" style="text-align: center;">{{ recipe.time }}</label>
+
+                <div style="margin-top: 20px;">
+                    <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.recipes', delete='delete', recipe=recipe.id)}}">Удалить</a>
+                    <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.recipes') }}">Назад</a>
+                </div>
+                </div>
+            </nav>
+        </form>
+    </div>
+{% endblock %}

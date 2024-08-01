@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="form-signin">
+        <h1 class="h3">Добавление рецепта</h1>
+        <form method="POST" action="{{ url_for('routes.creator_recipe') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-floating">
+                {{ form.title(class="form-control", placeholder="Title", required=True) }}
+                <label for="floatingInput">Название</label>
+                {% for error in form.title.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.category(class="form-control", placeholder="Category", required=True) }}
+                <label for="floatingInput">Категория</label>
+                {% for error in form.category.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.ingredients(class="form-control", placeholder="Ingredients", required=True) }}
+                <label for="floatingInput">Ингредиенты</label>
+                {% for error in form.ingredients.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.steps(class="form-control", placeholder="Steps", required=True) }}
+                <label for="floatingInput">Шаги</label>
+                {% for error in form.steps.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.time(class="form-control", type="time", placeholder="Time", required=True) }}
+                <label for="floatingInput">Время</label>
+                {% for error in form.steps.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
+            </div>
+
+            <div>
+                <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.recipes') }}">Отмена</a>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
